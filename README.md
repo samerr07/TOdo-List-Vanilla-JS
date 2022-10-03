@@ -27,4 +27,4 @@ Todo list is a simple application to save your daily task in order to not miss a
 
 ## Demo
 
-Insert gif or link to demo
+https://samerr07.github.io/TOdo-List-Vanilla-JS/
