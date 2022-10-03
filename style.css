@@ -1,0 +1,318 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: cursive;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #91eae4, #86a8e7, #7f7fd5);
+}
+
+::selection {
+    color: #fff;
+    background: #3c87ff;
+}
+
+/* heading of the app */
+
+.heading{
+    text-align: center;
+    padding: 10px;
+    margin-top: 73px;
+    margin-bottom: -85px;
+    font-weight: lighter;
+    border: 1px solid;
+    margin-right: 240px;
+    margin-left: 210px;
+    background: gray;
+    border-radius: 10px;
+    border-style: none;
+}
+
+.headingTxt{
+    font-family: cursive;
+    color: red;
+    justify-content: space-between;
+}
+
+/* main container */
+.container{
+    max-width: 405px;
+    padding: 28px 0px 30px;
+    margin: 137px auto;
+    background: #fff;
+    border-radius: 7px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* input section */
+
+.taskInput{
+    height: 52px;
+    padding: 0 25px;
+    position: relative;
+    display: flex;
+}
+.taskInput input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 0 20px 0 53px;
+    border: 1px solid #999;
+}
+
+.taskInput input:focus,
+.taskInput input.active{
+    padding-left: 52px;
+    border: 2px solid #3c87ff;
+}
+
+.taskInput input::placeholder {
+    color: #bfbfbf;
+}
+
+/* buttons */
+/* Add Button  */
+#addBtn{
+    border-radius: 10px;
+    margin: 0 5px;
+    border-style: none;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.25s ease;
+    background: linear-gradient(135deg,#1798fb 0%,#4968da 100%);
+}
+
+/* Delete button */
+
+.delBtn{
+    height: 34px;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    border-radius: 11px;
+    border-style: none;
+    background-color: rgba(238, 22, 22, 0.958);
+    color: white;
+    margin: 0px 2px;
+}
+
+/* Edit Button */
+
+#editBtn{
+    height: 34px;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    border-radius: 11px;
+    border-style: none;
+    color: blue;
+    background-color: yellow;
+}
+/* count of the task */
+
+.count{
+    padding: 10px 25px;
+    border: 1px solid;
+    background-color: rgb(241, 11, 100);
+    margin-right: 220px;
+    margin-left: 20px;
+    border-style: none;
+    border-radius: 10px;
+    margin-top: 15px;
+    color: white;
+}
+
+.controls,li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.controls{
+    padding: 18px 25px;
+    border-bottom: 1px solid #ccc;
+}
+
+/* filter section */
+
+.filters span{
+    margin: 0 8px;
+    font-size: 17px;
+    color: #444444;
+    cursor: pointer;
+}
+
+.filters span:first-child{
+    margin-left: 0;
+}
+
+.filters span.active{
+    color: #3787ff;
+}
+
+/* Clear Button */
+
+.controls .clearBtn {
+    border: none;
+    opacity: 0.6;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    padding: 7px 13px;
+    border-radius: 4px;
+    letter-spacing: 0.3px;
+    pointer-events: none;
+    transition: transform 0.25s ease;
+    background: linear-gradient(135deg,#1798fb 0%,#2d5cfe 100%);
+}
+
+.clearBtn.active{
+    opacity: 0.9;
+    pointer-events: auto;
+}
+
+.clearBtn:active{
+    transform: scale(0.93);
+}
+
+/* lists of the task  */
+
+.taskBox{
+    margin-top: 20px;
+    margin-right: 5px;
+    padding: 0 20px 10px 25px;
+}
+
+.taskBox.overflow {
+    overflow-y: auto;
+    max-height: 300px;
+}
+
+.taskBox::-webkit-scrollbar {
+    width: 5px;
+}
+
+.taskBox::-webkit-scrollbar-track{
+    background: #f1f1f1;
+    border-radius: 25px;
+}
+
+.taskBox .task{
+    list-style: none;
+    font-size: 17px;
+    margin-bottom: 18px;
+    padding-bottom: 16px;
+    align-items: flex-start;
+    border-bottom: 1px solid #ccc ;
+}
+
+.taskBox .task label {
+    display: flex;
+    align-items: flex-start;
+}
+
+.taskBox .task:last-child{
+    margin-bottom: 0;
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.task label input {
+    margin-top: 7px;
+    accent-color: #3c87ff;
+}
+
+.task label p {
+    user-select: none;
+    margin-left: 12px;
+    word-wrap: break-word;
+}
+
+.task label p.checked {
+    text-decoration: line-through;
+
+}
+
+.taskBox .settings {
+    position: relative;
+}
+
+.settings :where(i,li){
+    cursor: pointer;
+}
+
+.settings .task-menu  {
+    z-index: 10;
+    right: -5px;
+    bottom: -65px;
+    padding: 5px 0;
+    background: #fff;
+    position: absolute;
+    border-radius: 4px;
+    transform: scale(0);
+    transform-origin: top right;
+    box-shadow: 0 0 6px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease;
+}
+
+.taskBox .task:last-child .task-menu {
+    bottom: 0;
+    transform-origin: bottom right;
+}
+
+.taskBox .task:first-child .task-menu {
+    bottom: -65px;
+    transform-origin: top right;
+}
+
+.task-menu.show{
+    transform: scale(1);
+}
+
+.task-menu li {
+    height: 25px;
+    font-size: 16px;
+    margin-bottom: 2px;
+    padding: 17px 15px;
+    cursor: pointer;
+    justify-content: flex-start;
+}
+
+.task-menu li:last-child {
+    margin-bottom: 0;
+}
+
+/* Style of devices of screen size less than 768px  */
+
+@media (max-width: 768px) {
+    body {
+        padding: 0 10px;
+    }
+    .container{
+        padding: 20px 0;
+    }
+    .filter span {
+        margin: 0 5px;
+    }
+    .taskInput {
+        padding: 0 20px;
+    }
+    .controls {
+        padding: 18px 20px;
+    }
+    .taskBox {
+        margin-top: 20px;
+        margin-right: 5px;
+        padding: 0 15px 10px 20px;
+    }
+    .task label input {
+        margin-top: 4px;
+    }
+}
